@@ -1,0 +1,15 @@
+363	Zinc 1
+367	Zinc 1
+380	Zinc 1
+385	Zinc 1
+394	Zinc 2
+398	Zinc 2
+404	Zinc 2
+409	Zinc 2
+418	Zinc 3
+422	Zinc 3
+427	Zinc 3
+430	Zinc 3
+1493	Acetyl-CoA; via carbonyl oxygen
+1498	Acetyl-CoA
+1502	Acetyl-CoA
