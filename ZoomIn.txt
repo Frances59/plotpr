@@ -1,2 +1,2 @@
 zoomIn	zoomStart	zoomEnd	tickSize
-yes	230	303	50
+no	230	303	50
