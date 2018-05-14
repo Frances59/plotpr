@@ -92,6 +92,7 @@ name_d = xpathSApply(doc,"//table[@id= 'domainsAnno_section']/tr/td/span[@proper
 s_d=c()
 for(i in 1:length(position_d)){ 
 s_d[i] <- gsub(pattern="\\D",replacement="x",position_d[i])}
+s_d<-as.character(s_d)
 s_d <- strsplit(s_d,"xxx")
 d1_d <- laply(s_d,function(x)x[1])
 d2_d <- laply(s_d,function(x)x[2])
@@ -175,9 +176,8 @@ library("seqinr")
 library("plotrix")
 
 protein=read.table("Protein.txt", sep="\t",stringsAsFactors=F)
-domain=read.table("Domain.txt", sep="\t",stringsAsFactors=F)
-length=read.table("Length.txt", sep="\t",stringsAsFactors=F)
-
+domain=tryCatch(read.table("Domain.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
+length=tryCatch(read.table("Length.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
 site=tryCatch(read.table("Site.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
 
 
@@ -349,8 +349,8 @@ if(additionalOptions == "yes"){
 
 conservation=function(){
 protein=read.table("Protein.txt", sep="\t",stringsAsFactors=F)
-domain=read.table("Domain.txt", sep="\t",stringsAsFactors=F)
-length=read.table("Length.txt", sep="\t",stringsAsFactors=F)
+domain=tryCatch(read.table("Domain.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
+length=tryCatch(read.table("Length.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
 site=tryCatch(read.table("Site.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
 
 muta=read.table("Mutagenesis.txt", sep="\t",stringsAsFactors=F)
@@ -474,8 +474,8 @@ if(additionalOptions == "yes"){
 plotsite=function(){
 
 protein=read.table("Protein.txt", sep="\t",stringsAsFactors=F)
-domain=read.table("Domain.txt", sep="\t",stringsAsFactors=F)
-length=read.table("Length.txt", sep="\t",stringsAsFactors=F)
+domain=tryCatch(read.table("Domain.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
+length=tryCatch(read.table("Length.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
 site=tryCatch(read.table("Site.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
 
 muta=read.table("Mutagenesis.txt", sep="\t",stringsAsFactors=F)
@@ -570,8 +570,8 @@ position2=Change_x(site[,1],site[,2],as.numeric(length[2]))
 
 plotdomain=function(){
 protein=read.table("Protein.txt", sep="\t",stringsAsFactors=F)
-domain=read.table("Domain.txt", sep="\t",stringsAsFactors=F)
-length=read.table("Length.txt", sep="\t",stringsAsFactors=F)
+domain=tryCatch(read.table("Domain.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
+length=tryCatch(read.table("Length.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
 site=tryCatch(read.table("Site.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
 
 muta=read.table("Mutagenesis.txt", sep="\t",stringsAsFactors=F)
@@ -699,8 +699,8 @@ Domain_h(position=position1,position2=position3[i],name=as.character(domain[i,3]
 
 plotmutagensis=function(){
 protein=read.table("Protein.txt", sep="\t",stringsAsFactors=F)
-domain=read.table("Domain.txt", sep="\t",stringsAsFactors=F)
-length=read.table("Length.txt", sep="\t",stringsAsFactors=F)
+domain=tryCatch(read.table("Domain.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
+length=tryCatch(read.table("Length.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
 site=tryCatch(read.table("Site.txt", sep="\t",stringsAsFactors=F),error=function(e) NULL)
 
 muta=read.table("Mutagenesis.txt", sep="\t",stringsAsFactors=F)
